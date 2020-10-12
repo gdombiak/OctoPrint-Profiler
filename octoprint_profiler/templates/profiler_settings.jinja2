@@ -1,0 +1,66 @@
+<form class="form-horizontal">
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tabProfilerGeneral" data-toggle="tab">General</a></li>
+            <li><a href="#tabProfilerResults" data-toggle="tab">Results</a></li>
+        </ul>
+        <div class="tab-content">
+            <!-- GENERAL - TAB -->
+            <div class="tab-pane active" id="tabProfilerGeneral">
+
+                <h3>{{ _('YAPPI Profiler Settings') }}</h3>
+
+                <div class="control-group">
+                     <fieldset>
+                         <legend>{{ _('Basic Configuration') }}</legend>
+                        <label class="control-label" for="profile_enabled">{{ _('Enable profiling') }}</label>
+                        <div class="controls">
+                           <input type="checkbox" class="input-block-level" id="profile_enabled" data-bind="checked: settings.plugins.profiler.profile_enabled">
+                        </div>
+
+                        <label class="control-label" for="output_folder">{{ _('Folder to use for saving output files. Leave empty for working directory or end with /') }}</label>
+                        <div class="controls">
+                            <input type="text" class="input-block-level" id="output_folder" data-bind="value: settings.plugins.profiler.output_folder">
+                        </div>
+                     </fieldset>
+                </div>
+
+                 <div class="control-group">
+                     <fieldset>
+                         <legend>{{ _('Profile selected event') }}</legend>
+                         <div class="controls">
+                            <input type="radio" id="scope_type1" data-bind="checked: settings.plugins.profiler.profile_scope" value="print_job"> {{ _('Print Job') }}<br>
+                            <input type="radio" id="scope_type2" data-bind="checked: settings.plugins.profiler.profile_scope" value="file_upload"> {{ _('File Upload') }}<br>
+                         </div>
+                     </fieldset>
+                </div>
+
+                 <div class="control-group">
+                     <fieldset>
+                         <legend>{{ _('Clock type used for calculating timing data') }}</legend>
+                         <div class="controls">
+                             <input type="radio" id="clock_type1" data-bind="checked: settings.plugins.profiler.profile_clock_type" value="cpu"> {{ _('CPU') }}<br>
+                             <input type="radio" id="clock_type2" data-bind="checked: settings.plugins.profiler.profile_clock_type" value="wall"> {{ _('Wall') }}<br>
+                        </div>
+                     </fieldset>
+                </div>
+
+{#                <div class="control-group">#}
+{#                    <div class="controls">#}
+{#                        <label class="checkbox">#}
+{#                        <input type="checkbox" data-bind="checked: settings.plugins.profiler.debug_logging">{{ _('Enable debug logging') }}#}
+{#                        </label>#}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+            <!-- RESULTS - TAB -->
+            <div class="tab-pane" id="tabProfilerResults">
+
+                <h3>{{ _('Profiling Results') }}</h3>
+                TODO
+            </div>
+        </div>
+    </div>
+
+</form>
+

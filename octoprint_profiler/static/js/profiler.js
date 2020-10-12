@@ -9,10 +9,11 @@ $(function() {
         var self = this;
 
         // assign the injected parameters, e.g.:
-        // self.loginStateViewModel = parameters[0];
-        // self.settingsViewModel = parameters[1];
+        self.settingsViewModel = parameters[0];
 
-        // TODO: Implement your plugin's view model here.
+        self.onBeforeBinding = function() {
+            self.settings = self.settingsViewModel.settings;
+        };
     }
 
     /* view model class, parameters for constructor, container to bind to
@@ -22,8 +23,8 @@ $(function() {
     OCTOPRINT_VIEWMODELS.push({
         construct: ProfilerViewModel,
         // ViewModels your plugin depends on, e.g. loginStateViewModel, settingsViewModel, ...
-        dependencies: [ /* "loginStateViewModel", "settingsViewModel" */ ],
+        dependencies: [ "settingsViewModel" ],
         // Elements to bind to, e.g. #settings_plugin_profiler, #tab_plugin_profiler, ...
-        elements: [ /* ... */ ]
+        elements: [ "#settings_plugin_profiler" ]
     });
 });
